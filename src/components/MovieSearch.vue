@@ -2,7 +2,7 @@
   <div class="relative w-full md:w-64">
     <input
       :value="modelValue"
-      @input="$emit('update:modelValue', $event.target.value)"
+      @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       @keyup.enter="$emit('search')"
       type="text"
       placeholder="Search movies..."
@@ -26,7 +26,7 @@ defineProps<{
 }>()
 
 defineEmits<{
-  (e: 'update:modelValue'): void
+  (e: 'update:modelValue', value: string): void
   (e: 'search'): void
 }>()
 </script>
